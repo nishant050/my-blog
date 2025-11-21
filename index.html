@@ -3,20 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my blog</title>
+    <title>Capillary Technologies IPO: Listing Day Hourly Forecast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: system-ui, sans-serif; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f0f2f5; color: #333; }
-        .card { background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; max-width: 400px; }
-        h1 { margin-top: 0; color: #2563eb; }
-        p { color: #666; line-height: 1.5; }
-        .badge { background: #eff6ff; color: #2563eb; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600; display: inline-block; margin-bottom: 1rem; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0;
+        }
+        .card {
+            background-color: #1e293b; /* Slate 800 */
+            border: 1px solid #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
     </style>
 </head>
-<body>
-    <div class="card">
-        <span class="badge">New Site</span>
-        <h1>my blog</h1>
-        <p>Welcome to your new website! Edit <code>index.html</code> in your Web OS to change this page.</p>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <h1 class="text-3xl font-bold text-white mb-1">
+                        <i class="fa-solid fa-clock text-blue-500 mr-2"></i>Listing Day Hourly Forecast
+                    </h1>
+                    <p class="text-slate-400">Intraday Price Prediction Model (Nov 21, 2025)</p>
+                </div>
+                <div class="flex gap-3">
+                    <div class="px-4 py-2 bg-purple-900/30 border border-purple-700 rounded-lg text-purple-400 text-sm font-medium">
+                        <i class="fa-solid fa-bell mr-1"></i> Opens: 10:00 AM
+                    </div>
+                    <div class="px-4 py-2 bg-blue-900/30 border border-blue-700 rounded-lg text-blue-400 text-sm font-medium">
+                        <i class="fa-solid fa-tag mr-1"></i> Issue Price: ₹577
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Key Metrics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <!-- Metric 1 -->
+            <div class="card rounded-xl p-5">
+                <div class="text-slate-400 text-sm mb-1">Projected High (10:05 AM)</div>
+                <div class="text-2xl font-bold text-white">₹648.00</div>
+                <div class="text-green-400 text-sm mt-1">
+                    <i class="fa-solid fa-arrow-up"></i> Max Listing Euphoria
+                </div>
+            </div>
+            <!-- Metric 2 -->
+            <div class="card rounded-xl p-5">
+                <div class="text-slate-400 text-sm mb-1">Projected Low (1:30 PM)</div>
+                <div class="text-2xl font-bold text-red-400">₹612.00</div>
+                <div class="text-slate-400 text-sm mt-1">
+                    Profit Booking Support Level
+                </div>
+            </div>
+            <!-- Metric 3 -->
+            <div class="card rounded-xl p-5">
+                <div class="text-slate-400 text-sm mb-1">Est. Closing Price</div>
+                <div class="text-2xl font-bold text-blue-400">₹616.50</div>
+                <div class="text-slate-400 text-sm mt-1">
+                    Settlement Zone
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chart Section -->
+        <div class="card rounded-xl p-4 md:p-6 mb-8">
+            <div class="relative h-[400px] w-full">
+                <canvas id="predictionChart"></canvas>
+            </div>
+            <div class="mt-4 flex justify-center gap-6 text-sm text-slate-400">
+                <div class="flex items-center"><span class="w-3 h-3 bg-slate-600 rounded-full mr-2"></span>Issue Price (₹577)</div>
+                <div class="flex items-center"><span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>Hourly Price Action</div>
+            </div>
+        </div>
+
+        <!-- Analysis Timeline -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-white mb-4 border-b border-slate-700 pb-2">Intraday Narrative</h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <div class="mt-1 w-14 flex-none text-right text-xs font-bold text-slate-400">10:00 AM</div>
+                        <div class="border-l-2 border-green-500 pl-3">
+                            <p class="text-slate-200 font-medium">The Debut Pop</p>
+                            <p class="text-slate-400 text-sm">Stock lists. Surge of retail orders hits. Price peaks at ₹648 (+12%) driven by initial hype.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <div class="mt-1 w-14 flex-none text-right text-xs font-bold text-slate-400">11:30 AM</div>
+                        <div class="border-l-2 border-red-500 pl-3">
+                            <p class="text-slate-200 font-medium">Profit Booking Kick-in</p>
+                            <p class="text-slate-400 text-sm">High valuation fears trigger selling. Flippers exit positions. Price drifts down to ₹625.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-3">
+                        <div class="mt-1 w-14 flex-none text-right text-xs font-bold text-slate-400">2:00 PM</div>
+                        <div class="border-l-2 border-yellow-500 pl-3">
+                            <p class="text-slate-200 font-medium">Consolidation</p>
+                            <p class="text-slate-400 text-sm">Institutional buying (QIB) creates a floor around ₹612-615, preventing a free fall.</p>
+                        </div>
+                    </li>
+                     <li class="flex gap-3">
+                        <div class="mt-1 w-14 flex-none text-right text-xs font-bold text-slate-400">3:30 PM</div>
+                        <div class="border-l-2 border-blue-500 pl-3">
+                            <p class="text-slate-200 font-medium">Market Close</p>
+                            <p class="text-slate-400 text-sm">Stock settles near ₹616, holding modest gains but cooling off from highs.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card rounded-xl p-6 border-l-4 border-blue-500">
+                <h3 class="text-lg font-semibold text-white mb-4">Trading Strategy (Intraday)</h3>
+                <div class="space-y-4">
+                    <div class="bg-slate-900/50 p-3 rounded-lg">
+                        <div class="font-medium text-green-400 mb-1">For Listing Gain Seekers</div>
+                        <p class="text-xs text-slate-400">Exit within the first 30-45 minutes (10:00 - 10:45 AM). Historical data shows SaaS IPOs often peak early before valuation concerns weigh in.</p>
+                    </div>
+                    <div class="bg-slate-900/50 p-3 rounded-lg">
+                        <div class="font-medium text-blue-400 mb-1">For Long Term Investors</div>
+                        <p class="text-xs text-slate-400">Do not chase the opening spike. Wait for the 1:30 PM - 2:00 PM dip to accumulate if you believe in the story.</p>
+                    </div>
+                     <div class="bg-slate-900/50 p-3 rounded-lg">
+                        <div class="font-medium text-red-400 mb-1">Stop Loss Alert</div>
+                        <p class="text-xs text-slate-400">If price breaks below ₹600 (psychological support), it may slide towards issue price (₹577).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        const ctx = document.getElementById('predictionChart').getContext('2d');
+
+        // Hourly Labels
+        const labels = ['10:00 AM', '10:30 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '3:30 PM'];
+        
+        // Predicted Price Data (Simulating spike and settle)
+        const dataPoints = [
+            648, // 10:00 - Open Spike
+            638, // 10:30 - Initial cooling
+            625, // 11:00 - Profit Booking
+            618, // 12:00 - Stabilization
+            612, // 1:00 - Intraday Low
+            615, // 2:00 - Value Buying
+            616, // 3:00 - Positioning
+            616.5 // 3:30 - Close
+        ];
+
+        // Issue Price Line (Constant)
+        const issuePriceData = Array(8).fill(577);
+
+        // Chart Configuration
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Projected Intraday Price (₹)',
+                        data: dataPoints,
+                        borderColor: '#3b82f6', // Blue-500
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#3b82f6',
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        tension: 0.4, // Smoother curves for intraday
+                        fill: true
+                    },
+                    {
+                        label: 'Issue Price (₹577)',
+                        data: issuePriceData,
+                        borderColor: '#64748b', // Slate-500
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        pointRadius: 0,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { color: '#94a3b8' }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1e293b',
+                        titleColor: '#f8fafc',
+                        bodyColor: '#cbd5e1',
+                        borderColor: '#334155',
+                        borderWidth: 1,
+                        callbacks: {
+                            afterBody: function(context) {
+                                if (context[0].dataIndex === 0) return 'Max Volatility';
+                                if (context[0].dataIndex === 4) return 'Buying Opportunity?';
+                                return '';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        suggestedMin: 570,
+                        suggestedMax: 660,
+                        grid: { color: '#334155' },
+                        ticks: { color: '#94a3b8', callback: function(value) { return '₹' + value; } }
+                    },
+                    x: {
+                        grid: { color: '#334155' },
+                        ticks: { color: '#94a3b8' }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
